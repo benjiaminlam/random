@@ -27,7 +27,7 @@
 		y = Math.random()*canvas.height;
 		ctx.strokeStyle = "#9D9595";
 		ctx.fillRect(x,y,1,1);
-
+		var count = 0;
 		canvas.addEventListener("mousedown", getPosition, false);
 
 		function getPosition(event)
@@ -37,7 +37,24 @@
 
 		  if(x-10<x1&&x1<x+10&&y-10<y1&&y1<y+10)
 		  {
-		  	alert("Find it");
+		  	count++;
+		  	if(count == 1)
+		  	{
+		  		alert("Find it "+count+" time");
+		  	}else if(count<5)
+		  	{
+		  		alert("Find it "+count+" times");
+		  	}else if (count == 5)
+		  	{
+		  		alert("Good eyesight");
+		  	}else if (count <8)
+		  	{
+		  		alert("Find it "+count+" times");
+		  	}else if( count == 8)
+		  	{
+		  		alert("Can't image how clean your screen is!")
+		  	}
+		  	
 		  	canvas.width = canvas.width;
 		  	x = Math.random()*canvas.width;
 			y = Math.random()*canvas.height;
