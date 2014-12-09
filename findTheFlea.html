@@ -1,0 +1,61 @@
+<html>
+<head>
+	<style>
+	html,body{
+		width:  100%;
+		height: 100%;
+		margin: 0px;
+	}
+
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+	</script>
+	
+	<script>
+	var x,y,x1,y1;
+	 window.onload = function() {
+ 	   draw();
+   	}
+	function draw(){
+		var canvas = document.getElementById('area');
+		var ctx = canvas.getContext("2d");
+		//resize the canvas size to the window size
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		//add point
+		x = Math.random()*canvas.width;
+		y = Math.random()*canvas.height;
+		ctx.strokeStyle = "#9D9595";
+		ctx.fillRect(x,y,1,1);
+
+		canvas.addEventListener("mousedown", getPosition, false);
+
+		function getPosition(event)
+		{
+		  x1 = event.x;
+		  y1 = event.y;
+
+		  if(x-10<x1&&x1<x+10&&y-10<y1&&y1<y+10)
+		  {
+		  	alert("Find it");
+		  	canvas.width = canvas.width;
+		  	x = Math.random()*canvas.width;
+			y = Math.random()*canvas.height;
+			ctx.strokeStyle = "#9D9595";
+			ctx.fillRect(x,y,1,1);
+		  }
+		  console.log(x1,y1);
+		  console.log(x,y);
+		  
+		}
+
+	}
+
+
+	</script>
+</head>
+<body>
+	<title>Find the Flea</title>
+	<canvas id="area"></canvas>
+</body>
+</html>
