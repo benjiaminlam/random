@@ -1,5 +1,5 @@
-#Everyday game hacking recording 
 
-Day 1 December 9
+Day 1 
 ---------------------
-Find the flea
+Find the Flea
+Keep your eyes on your screen
