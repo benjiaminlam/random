@@ -1,20 +1,73 @@
-<html><head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
-</script><style type="text/css"></style>
-<script>
-	$(document).ready(function(){
-	$('h1').css({'width':'100%','text-align':'center'});
-	var h1 = $('h1').height();
-	var h = h1/2;
-	var w1 = $(window).height();
-	var w = w1/2;
-	var m = w - h;
-	$('h1').css("margin-top",m+"px")
-});
-</script>
+<html>
+<head>
+	<style>
+	html,body{
+		width:  100%;
+		height: 100%;
+		margin: 0px;
+	}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
+	</script>
+	
+	<script>
+	var x,y,x1,y1;
+	 window.onload = function() {
+ 	   draw();
+   	}
+	function draw(){
+		var canvas = document.getElementById('area');
+		var ctx = canvas.getContext("2d");
+		//resize the canvas size to the window size
+		canvas.width = window.innerWidth;
+		canvas.height = window.innerHeight;
+		//add point
+		x = Math.random()*canvas.width;
+		y = Math.random()*canvas.height;
+		ctx.strokeStyle = "#9D9595";
+		ctx.fillRect(x,y,1,1);
+		var count = 0;
+		canvas.addEventListener("mousedown", getPosition, false);
+		function getPosition(event)
+		{
+		  x1 = event.x;
+		  y1 = event.y;
+		  if(x-10<x1&&x1<x+10&&y-10<y1&&y1<y+10)
+		  {
+		  	count++;
+		  	
+		        if (count == 5)
+		  	{
+		  		alert("眼力不错");
+		  	}else if( count == 10)
+		  	{
+		  		alert("你丫屏幕挺干净的");
+		  	}else if(count == 15)
+		  	{
+		  		alert("你丫每天擦几次屏幕啊");
+		  	}else if(count == 20)
+		  	{
+		  		alert("处女座你好")；
+		  	}else if(count == 25)
+		  	{
+		  		alert("处女座再见")
+		  	}
+		  	
+		  	canvas.width = canvas.width;
+		  	x = Math.random()*canvas.width;
+			y = Math.random()*canvas.height;
+			ctx.strokeStyle = "#9D9595";
+			ctx.fillRect(x,y,1,1);
+		  }
+		  console.log(x1,y1);
+		  console.log(x,y);
+		  
+		}
+	}
+	</script>
 </head>
 <body>
-	<h1 style="width: 100%; text-align: center; margin-top: 304px;">
-	- COMING SOON -
-	</h1>
-</body></html>
+	<title>美曰其名叫找虱子</title>
+	<canvas id="area"></canvas>
+</body>
+</html>
